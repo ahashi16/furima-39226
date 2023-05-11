@@ -35,7 +35,7 @@
 
 ### アソシエーション
 
-- has_one :orders
+- has_one :order
 - belongs_to :user
 
 ## orders テーブル
