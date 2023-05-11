@@ -54,6 +54,7 @@
 ## addresses テーブル
 
 | カラム名       | 型          | バリデーション                   |
+| ------        | ------     | -----------                    |
 |order          | references | null: false, foreign_key: true |
 |post_code      |integer     |null: false                     |
 |prefectures_id |integer     |null: false                     |
