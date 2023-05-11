@@ -11,7 +11,7 @@
 | last_name          | string | null: false              |
 | first_name_kana    | string | null: false              |
 | last_name_kane     | string | null: false              |
-| birth day          |  date  | null: false              |
+| birth_day          |  date  | null: false              |
 
 ### アソシエーション
 
@@ -28,14 +28,14 @@
 | item_condition_id     | integer   | null: false                   |
 |shipping_fee_payer_id  |integer    |null: false                    |
 |shipping_area_id       |integer    |null: false                    |
-|shipping_days_id       |integer    |null: false                    |
+|shipping_day_id       |integer    |null: false                    |
 |price                  |integer    |null: false                    |
 |user                   |references |null: false, foreign_key: true |
 
 
 ### アソシエーション
 
-- has_many :orders
+- has_one :orders
 - belongs_to :user
 
 ## orders テーブル
@@ -53,15 +53,15 @@
 
 ## addresses テーブル
 
-| カラム名       | 型          | バリデーション                   |
-| ------        | ------     | -----------                    |
-|order          | references | null: false, foreign_key: true |
-|post_code      |integer     |null: false                     |
-|prefectures_id |integer     |null: false                     |
-|municipalities | string     | null: false                    |
-|block_number   | string     | null: false                    |
-|building_name  | string     |                                |
-|phone_number   | string     | null: false                    |
+| カラム名         | 型          | バリデーション                   |
+| ------          | ------     | -----------                    |
+|order            | references | null: false, foreign_key: true |
+|post_code        |string      |null: false                     |
+|shipping_area_id |integer     |null: false                     |
+|municipalities   | string     | null: false                    |
+|block_number     | string     | null: false                    |
+|building_name    | string     |                                |
+|phone_number     | string     | null: false                    |
 
 ### アソシエーション
 
