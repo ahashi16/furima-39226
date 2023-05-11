@@ -25,7 +25,7 @@
 | Description        | text      | null: false                   |
 | Category           | string    | null: false                   |
 | item_condition     | string    | null: false                   |
-｜shipping_fee_payer ｜string     |null: false                    |
+|shipping_fee_payer  |string     |null: false                    |
 |shipping_area       |string     |null: false                    |
 |shipping_days       |string     |null: false                    |
 |price               |decimal    |null: false                    |
