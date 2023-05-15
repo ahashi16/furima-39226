@@ -3,6 +3,9 @@ class ItemsController < ApplicationController
   end
   def new
     @item = Item.new
+    unless user_signed_in?
+      redirect_to root_path
+    end
   end
   def create
     @item = Item.new(item_params)
