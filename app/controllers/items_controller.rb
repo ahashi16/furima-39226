@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @items=Item.order(created_at: :desc)
-    @shipping_fee_payer=ShippingFeePayer.all
   end
   def new
     @item = Item.new
