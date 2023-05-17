@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      render action: :show
+      redirect_to item_path(@item)
     else
       render action: :edit
     end
@@ -49,10 +49,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  def authenticate_user!
-    unless user_signed_in?
-      redirect_to new_user_session_path
-      return
-    end
-  end
+  
 end
