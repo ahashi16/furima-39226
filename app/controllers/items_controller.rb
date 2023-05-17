@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.create(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -21,6 +21,33 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+    unless user_signed_in?
+      redirect_to new_user_session_path
+      return
+    end
+
+    unless  @item.user_id == current_user.id
+      redirect_to root_path 
+      return
+    end
+    
+
+    unless @item.present?
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render action: :edit
+    end
   end
 
   private
