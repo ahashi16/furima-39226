@@ -20,4 +20,8 @@ class Item < ApplicationRecord
   belongs_to :ShippingArea
   belongs_to :ShippingDay
   
+
+  def sold_out?
+    sold_out==false
+  end
 end

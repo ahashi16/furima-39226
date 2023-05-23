@@ -22,5 +22,7 @@ class OrderAddress
   Address.create(post_code: post_code,shipping_area_id: shipping_area_id,municipalities: municipalities,
     block_number: block_number, building_name: building_name, phone_number: phone_number,order_id: order.id)
  end
+
+ 
 end
 
