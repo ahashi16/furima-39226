@@ -12,10 +12,16 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
+  has_one :order
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :Genre
   belongs_to :ItemCondition
   belongs_to :ShippingFeePayer
   belongs_to :ShippingArea
   belongs_to :ShippingDay
+  
+
+  def sold_out?
+    sold_out==false
+  end
 end
