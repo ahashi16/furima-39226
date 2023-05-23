@@ -5,7 +5,6 @@ FactoryBot.define do
      municipalities {'大阪市大阪府'}
      block_number {'1234'}
      phone_number {'09000000000'}
-     token {"tok_abcdefghijk00000000000000000"}
      building_name {'ああああ'}
  
 
