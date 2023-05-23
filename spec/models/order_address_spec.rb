@@ -6,7 +6,7 @@ RSpec.describe OrderAddress, type: :model do
       @user = FactoryBot.create(:user)
       @item = FactoryBot.create(:item,user_id:@user.id)
       @order_address = FactoryBot.build(:order_address,user_id:@user.id,item_id:@item.id)
-      sleep 0.1
+      sleep 0.5
     end
     context '商品購入記録の保存できる場合' do
       it 'すべての値が正しく入力されていれば購入できること' do
@@ -19,11 +19,6 @@ RSpec.describe OrderAddress, type: :model do
       end
     end
     context '商品購入記録の保存できない場合' do
-      it '価格が空だと保存できないこと' do
-        @order_address.price = ""
-        @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Price can't be blank")
-      end
       it '郵便番号は空では保存できないこと' do
         @order_address.post_code=""
         @order_address.valid?
@@ -79,8 +74,13 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("User can't be blank")
       end
-
+       it '電話番号に半角数字以外が含まれている場合は購入できない' do
+        @order_address.phone_number='０００００００００００'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is invalid")
+       end
       
     end
   end
 end
+
